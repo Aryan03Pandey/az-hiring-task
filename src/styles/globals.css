@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+}
+
+body::before {
+  content: "";
+  position: fixed; /* Fix the gradient in the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, rgba(242,251,255,1) 0%, rgba(249,254,255,1) 68%, rgba(255,255,255,1) 100%);
+  z-index: -1; /* Place it behind other content */
+}
+
+body{
+    min-height: 100vh;
+    overflow-y: auto;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side,#474bff 94%,#0000) top/9px 9px no-repeat,
+         conic-gradient(#0000 30%,#474bff);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+  animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+     transform: rotate(1turn);
+  }
+}
+
+.border-spindle{
+  border-bottom: 0.5px solid #8FDFFF;
+  border-radius: 0;
+  border-image: linear-gradient(to right, transparent 0%, #8FDFFF 50%, transparent 100%) 1;
+
+}
+
+.AccordionItem {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 0.5px solid #A4E6FF;
+}
+
+.AccordionHeader {
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+}
+
+.AccordionPanel{
+  padding: 20px;
+}
+
+/* Background bar */
+.progress-bar {
+  width: 100%;
+  background-color: #EFF5FF;
+  border-bottom-right-radius: 16px; 
+  border-bottom-left-radius: 16px; 
+  overflow: hidden; 
+  height: 8px;
+}
+
+/* Progress fill */
+.progress {
+  height: 100%; 
+  background-color: #172B4D; 
+  width: 0%; 
+  border-radius: 10px 0 0 10px; 
+  transition: all 0.3s ease; 
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust as needed */
+  height: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-secondaryActive;
+}
+
+/* Thumb (scroll handle) */
+::-webkit-scrollbar-thumb {
+  background-color: #172B4D; /* Color of the scrollbar thumb */
+  border-radius: 40px; /* Makes the scrollbar rounded */
+  border: 3px solid #f0f0f0; /* Border to create spacing around the thumb */
+}
+
+/* Thumb hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #172B4D; /* Darker color when hovering over the thumb */
+}
+
+/* Firefox styling (rounded and thin scrollbar) */
+* {
+  scrollbar-width: thin; /* Thin scrollbar width */
+  scrollbar-color: #172B4D #f0f0f0; /* Thumb color and track color */
+}
